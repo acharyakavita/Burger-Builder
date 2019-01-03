@@ -18,7 +18,7 @@ const burger = (props) => {
         /*filter(
         burgerIngredient => burgerIngredient.length > 0
         );*/
-        
+        console.log(arrayOfIngredients)
         if (arrayOfIngredients.length === 0){
             arrayOfIngredients=<p>Please start adding ingredients</p>
         }
