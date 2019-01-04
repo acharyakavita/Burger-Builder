@@ -21,10 +21,16 @@ class BurgerBuilder extends Component {
             meat: 0,
         },
         totalPrice: 4,
-        purchaseable: false
+        purchaseable: false,
+        purchasing: false
 
     };
 
+    purchaseHandler=()=>{
+        this.setState({ purchasing: true })
+    }
+
+    /*Order now button will be enabled only if ingredients are selected*/
     updatePurchaseState(updatedIngredients) {
 
         const sum = Object.values(updatedIngredients)
@@ -75,14 +81,17 @@ class BurgerBuilder extends Component {
         /*disabledinfo will have true /false as value*/
         return (
             <Aux>
-                <Modal><OrderSummary ingredients={this.state.ingredients}/></Modal>
+                <Modal show={this.state.purchasing}>
+                    <OrderSummary ingredients={this.state.ingredients} />
+                </Modal>
                 <Burger ingredients={this.state.ingredients} />
                 <BuildControls
                     price={this.state.totalPrice}
                     purchaseable={this.state.purchaseable}
                     ingredientAdded={this.addIngredientHandler}
                     ingredientRemoved={this.removeIngredientHandler}
-                    disabled={disabledInfo} />
+                    disabled={disabledInfo}
+                    click={this.purchaseHandler} />
             </Aux>
         )
     }
