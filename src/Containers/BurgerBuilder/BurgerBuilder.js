@@ -6,8 +6,8 @@ import BuildControls from '../../Components/Burger/BuildControls/BuildControls';
 const INGREDIENT_PRICES={
     salad:0.5,
     cheese:1,
-    meat:1.3,
-    bacon:0.7
+    meat:1,
+    bacon:0.5
 }
 
 class BurgerBuilder extends Component {
