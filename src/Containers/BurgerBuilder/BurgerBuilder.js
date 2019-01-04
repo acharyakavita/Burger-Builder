@@ -26,8 +26,14 @@ class BurgerBuilder extends Component {
 
     };
 
+    /*opens the modal*/
     purchaseHandler=()=>{
         this.setState({ purchasing: true })
+    }
+
+    /*closes the modal*/
+    purchaseCancelHandler=()=>{
+        this.setState({ purchasing: false })
     }
 
     /*Order now button will be enabled only if ingredients are selected*/
@@ -81,7 +87,7 @@ class BurgerBuilder extends Component {
         /*disabledinfo will have true /false as value*/
         return (
             <Aux>
-                <Modal show={this.state.purchasing}>
+                <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
                     <OrderSummary ingredients={this.state.ingredients} />
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
